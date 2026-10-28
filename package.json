@@ -1,0 +1,16 @@
+{
+  "name": "ensign-design-guidance",
+  "version": "1.0.0",
+  "description": "Ensign College UI/UX Design System, ECC v2 Tokens & Frontend Compliance Guidance MCP Server",
+  "main": "index.js",
+  "bin": {
+    "ensign-design-guidance": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "commonjs",
+  "keywords": ["mcp", "ensign", "design", "tokens", "ui", "ux", "guidance"],
+  "author": "Rob Bagley",
+  "license": "ISC"
+}

@@ -1,0 +1,28 @@
+{
+  "system": "Mac Studio M1 Ultra AI Teams Architecture",
+  "machine_id": "mac-studio",
+  "ports": {
+    "1234": "LM Studio MLX native inference server (resident gemma4-26b-qat, JIT off)",
+    "4002": "Attribution Proxy (LLM telemetry and gateway)",
+    "7001": "Odysseus isolated backend daemon",
+    "8092": "Tailscale Funnel root target (443 -> 8092)",
+    "9230": "CDP primary helper lane (robbagley@ensign.edu, Edge Beta, persistent-edge-helper1)",
+    "9231": "CDP maker lane (ecenter24@ensign.net, Edge Beta, Copilot Studio maker work)",
+    "9232": "CDP failover helper lane (robbagley@ensign.edu, Edge Beta, persistent-edge-helper3)",
+    "9254": "CDP maker lane (ecenter24@ensign.net, Edge Beta, LaunchAgent com.robbagley.codex-playwright-edge-ecenter24)"
+  },
+  "storage_boundaries": {
+    "Bucket A (Work)": "OneDrive-EnsignCollege/ClaudeCowork/Projects/ and local SSD ~/Local-Infra/ (non-synced).",
+    "Bucket B (Personal/Rental/Church)": "OneDrive-Personal/ (synced to personal iMac). Never stored in Ensign College OneDrive or mixed into work repos.",
+    "Church Compute vs Storage Policy": "Calling work (Harvest Park 2nd Ward Assistant Executive Secretary) CAN run on Mac Studio local Gemma (:1234/:4002) for private compute/drafting, but all persistent data must reside on OneDrive-Personal (Bucket B) and/or iMac (robbagley@gmail.com)."
+  },
+  "onedrive_overwrite_trap": "Never write directly to active cloud-synced files without safety: write to /tmp, copy, and verify md5.",
+  "two_tier_offload": {
+    "Tier 0": "qwen3-14b-mlx on client laptops (MBP -> Hilary's Air) for <6k strict JSON/triage/regex/cron (temperature: 0.0, /no_think).",
+    "Tier 1": "gemma4-26b-qat on Mac Studio for 6k-60k long context, parallel batches, vision, and chat (24/7 resident, JIT strictly off, never swap models on Mac Studio)."
+  },
+  "browser_hygiene": {
+    "profiles": "Dedicated persistent profiles per tool (never share Chrome user-data-dir across concurrent tasks).",
+    "clean_launch": ["--test-type", "--hide-crash-restore-bubble", "--disable-session-crashed-bubble", "--no-first-run", "--no-default-browser-check", "--disable-infobars"]
+  }
+}
